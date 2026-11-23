@@ -23,6 +23,15 @@ def replace_once(data, old, new):
     return data.replace(old, new, 1)
 
 
+def extended_windows_path(path):
+    absolute = str(path.resolve())
+    if absolute.startswith('\\\\?\\'):
+        return absolute
+    if absolute.startswith('\\\\'):
+        return '\\\\?\\UNC\\' + absolute[2:]
+    return '\\\\?\\' + absolute
+
+
 def load_clips():
     package = json.loads((PET_DIR / 'pet.json').read_text(encoding='utf8'))
     states = package['states']
@@ -199,7 +208,8 @@ def main():
         archive = staged / 'resources/app.asar'
         archive.parent.mkdir(parents=True)
         build_archive(source / 'resources/app.asar', archive, pet_ids, HERE / 'diagnostics')
-        shutil.copytree(source, staged, dirs_exist_ok=True, ignore=shutil.ignore_patterns('app.asar'))
+        shutil.copytree(extended_windows_path(source), extended_windows_path(staged),
+                        dirs_exist_ok=True, ignore=shutil.ignore_patterns('app.asar'))
         runtime_ini = staged / 'resources/owl-app.ini'
         runtime_ini.write_text(replace_once(runtime_ini.read_text(encoding='utf8'),
                                            'UserDataDirectoryName=Codex\n',
