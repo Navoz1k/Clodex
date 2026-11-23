@@ -35,5 +35,3 @@ python .\build_desktop_copy.py (Join-Path $codex.InstallLocation 'app')
 When Clodex is already in your cloud Pets collection, add `--pet-id` with the exact ID from Pets. To add a local copy, run `python .\scripts\pet_packs.py install kav-clodex` and refresh the Pets list.
 
 Run `.\scripts\switch-codex.ps1` to preview the switch. Save your work, then run `.\scripts\switch-codex.ps1 -Apply`. If Codex stays in the tray, choose **Quit** and retry. The switch log is written to `switch.log`.
-
-Sprite artwork is based on the [ClaudeApp emoji pack](https://t.me/addemoji/ClaudeApp).

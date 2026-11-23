@@ -35,5 +35,3 @@ python .\build_desktop_copy.py (Join-Path $codex.InstallLocation 'app')
 Если Clodex уже в облачной коллекции Pets, передай его точный ID через `--pet-id`. Для локальной установки питомца выполни `python .\scripts\pet_packs.py install kav-clodex` и обнови список Pets.
 
 Команда `.\scripts\switch-codex.ps1` покажет, какой клиент будет запущен. Сохрани работу и выполни `.\scripts\switch-codex.ps1 -Apply`. Если штатный Codex остался в трее, выйди из него через **Quit** и повтори команду. Журнал переключения записывается в `switch.log`.
-
-Кадры основаны на [эмодзи-паке ClaudeApp](https://t.me/addemoji/ClaudeApp).
