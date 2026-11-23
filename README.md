@@ -4,6 +4,10 @@
 
 **The merger of two symbiotes – Codex and Claude**
 
+**Install with your agent** · “Install Clodex from this repository and switch to the modified Codex after I confirm.”
+
+A request to install Clodex from this repository starts the Windows mod setup. The agent checks compatibility, prepares the separate copy, and asks before closing your current Codex. A stock pet with standard animations is available on explicit request. [Agent installation instructions](AGENTS.md)
+
 ![Clodex animation rarity pyramid, with the legendary heart animation on a gold background above the other tiers](docs/clodex-rarities.webp)
 
 Clodex is a pixel companion for the **Pets menu in Codex**. The Windows mod adds weighted idle animations, repeats, and alternate reactions.
@@ -21,7 +25,7 @@ Clodex rolls after the base idle animation and an eight-second pause. Six specia
 
 ## Install with Codex
 
-Send this repository to your agent and ask it to install Clodex. The agent will explain the client modification and ask before closing your current Codex window. The mod prepares a separate local copy with its own profile, so you may need to sign in again. Once it opens, choose **Clodex** in **Settings → Pets**. The stock client remains available from the Windows Start menu.
+Send this repository link to your agent and ask it to install Clodex. The mod uses a separate profile, so you may need to sign in again. Once the modified copy opens, choose **Clodex** in **Settings → Pets**. The stock client remains available from the Windows Start menu.
 
 ### Manual setup
 

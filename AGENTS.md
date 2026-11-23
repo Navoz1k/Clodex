@@ -1,13 +1,10 @@
 # Installing Clodex
 
-Если пользователь передал ссылку на этот репозиторий и попросил установить Clodex, предложи выбор между штатным питомцем и расширенной сборкой. Объясни переключение на языке пользователя.
+A request such as “install this pet” with the Clodex repository link means the **Windows mod with extended animations**. Use the stock sprite pack only if the user explicitly asks for the stock version or says they want Clodex without the mod.
 
-> Расширенный Clodex живёт в меню Pets внутри изменённой локальной копии Codex. Она добавляет редкости, повторы и варианты реакций. Чтобы её открыть, я закрою штатный Codex и запущу изменённую копию с отдельным профилем. Файлы штатного клиента и настройки Windows сохранятся. Сохрани текущую работу перед переключением. Переключить сейчас?
-
-Для штатного варианта установи пакет `assets/pets/kav-clodex` штатным способом и оставь приложение открытым. В таком варианте анимациями управляет сам Codex.
-
-Для расширенного варианта проверь версию приложения и подготовь отдельную сборку по README до закрытия окон. Если Clodex уже есть в Pets, переиспользуй его. Когда отображается запись из облачной коллекции, возьми её точный ID через обычный Pets и передай его при сборке. При нескольких совпадениях пользователь должен выбрать одну запись.
-
-Запускай переключение только после явного согласия на закрытие приложения и запуск отдельной сборки. Используй `scripts/switch-codex.ps1 -Apply`. Если штатный клиент остаётся в трее, предложи закрыть его через Quit или получить явное согласие на завершение его процессов и использовать `-AllowForceClose`. Закрывай процессы только по точному пути к выбранному экземпляру.
-
-После переключения проверь журнал `switch.log` и сообщи, какой клиент запустился. Не обещай сохранение открытого экрана или авторизации из другого профиля. Укажи, что в штатный клиент можно вернуться через меню «Пуск».
+1. In the user's language, explain that Clodex will run inside Pets in a modified local copy of Codex, with an independent profile. The installed client and Windows settings stay in place. Switching closes the current Codex window and may require signing in again. Only switch after the user has saved their work and agreed to close the running client.
+2. Check for Python and the supported Windows Codex package `26.1117.4957.0`. If a prerequisite is missing or the build is unsupported, report the actual blocker. Keep the request open for the mod and ask before offering the stock pack as an alternative.
+3. Reuse an existing Clodex in Pets. If it is in the cloud collection, resolve its exact ID and pass it as `--pet-id` to `build_desktop_copy.py`. If the user has no Clodex yet, install the bundled local package with `python .\scripts\pet_packs.py install kav-clodex`. When there are several possible matching records in Pets, resolve the intended record before building or selecting.
+4. Prepare the modified copy using `build_desktop_copy.py` and preview the switch using `scripts/switch-codex.ps1` without flags. These steps can run with stock Codex open. Report a prepared copy as ready to switch. Installing the local pack alone never completes the mod installation.
+5. After the user's confirmation, run `scripts/switch-codex.ps1 -Apply` in a local helper process that survives closing Codex. If the stock app stays in the tray, have the user quit it normally, or get explicit consent to use `-AllowForceClose`. Use the script's exact-path process matching.
+6. Verify the modified Codex window opened and read `switch.log`. Help the user select Clodex from **Settings → Pets** in that window. If sign-in or selection still needs user action, say exactly which step is pending. The stock app remains available in the Windows Start menu.
