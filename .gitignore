@@ -1,0 +1,6 @@
+desktop-copy/
+mod-profile/
+diagnostics/
+.prepare-*/
+__pycache__/
+*.log
